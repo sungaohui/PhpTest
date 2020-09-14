@@ -5,12 +5,11 @@ pipeline {
 		buildDiscarder(logRotator(numToKeepStr: '10'))
 		disableConcurrentBuilds()
 		timeout(time: 20, unit: 'MINUTES')
-		gitLabConnection('gitlab')
+		gitLabConnection('github')
 	}
 
     environment {
         IMAGE_REPO = "harbor.shiyou.com/public/sdk-backend"
-        DINGTALK_CREDS = credentials('dingTalk')
         TAB_STR = "\n                    \n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
     }
 
